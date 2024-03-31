@@ -9,14 +9,15 @@ export const signup = async (req, res) => {
     }
     const user = await User.findOne({ userName });
     if (user) {
+      console.log(user)
       return res.status(400).json({ error: "user Already Exists" });
     }
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const boyProfile = `https://avatar.iran.liara.run/public/boy?username=${userName}`;
-    const girlProfile = `https://avatar.iran.liara.run/public/girl?username=${userName}`;
+    const boyProfile = `https://avatar.iran.liara.run/public/boy?userName=${userName}`;
+    const girlProfile = `https://avatar.iran.liara.run/public/girl?userName=${userName}`;
 
     const newUser = new User({
       fullName,
@@ -32,7 +33,7 @@ export const signup = async (req, res) => {
       res.status(201).json({
         _id: newUser.id,
         fullname: newUser.fullName,
-        username: newUser.userName,
+        userName: newUser.userName,
         profilepic: newUser.profilePic,
       });
     }
@@ -53,11 +54,11 @@ export const login = async(req, res) => {
   try {
     const {userName,password}=req.body
     const user=await User.findOne({userName})
-    const isPasswordCorrect=await bcrypt.compare(password,user.password || "")
+    const isPasswordCorrect=await bcrypt.compare(password,user?.password || "")
     
     if(!user || !isPasswordCorrect){
       return res.status(401).json({
-        message:"Invalid Credentials"
+        error:"Invalid Credentials"
       })
     }
 
