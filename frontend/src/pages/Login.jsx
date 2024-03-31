@@ -23,7 +23,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full bg-white rounded-lg shadow-2xl overflow-hidden">
+  <div className="max-w-md w-full bg-transparent rounded-lg shadow-2xl overflow-hidden backdrop-filter backdrop-blur-lg">
         <div className="py-8 px-10">
           <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-8">Sign in to your account</h2>
           <form onSubmit={handleSubmit}>
@@ -67,7 +67,7 @@ const Login = () => {
             </div>
           </form>
           <div className="text-center mt-4">
-            <p className="text-sm text-gray-600">Don't have an account? <Link to="/SignUp" className="font-medium text-indigo-600 hover:text-indigo-500">Sign up</Link></p>
+            <p className="text-xl text-gray-900">Don't have an account? <Link to="/SignUp" className="font-large text-indigo-600 hover:text-indigo-700">Sign up</Link></p>
           </div>
         </div>
       </div>

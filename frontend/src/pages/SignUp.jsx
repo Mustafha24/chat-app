@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
-import useSignup from "../hooks/useSignup"
+import useSignup from "../hooks/useSignup";
 
 const SignUp = () => {
   const [inputs, setInputs] = useState({
@@ -30,7 +30,7 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full bg-white rounded-lg shadow-2xl overflow-hidden">
+      <div className="max-w-md w-full bg-transparent rounded-lg shadow-2xl overflow-hidden backdrop-filter backdrop-blur-lg">
         <div className="py-8 px-10">
           <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-8">Sign up for an account</h2>
           <form onSubmit={handleSubmit}>
@@ -92,7 +92,7 @@ const SignUp = () => {
                 />
               </div>
               <div className='py-2'>
-                <span className="block mb-2 text-sm font-medium text-gray-700">Gender</span>
+                <span className="block mb-2 text-lg font-medium text-gray-900">Gender</span>
                 <div className="flex items-center">
                   <input
                     id="male"
@@ -126,10 +126,10 @@ const SignUp = () => {
               </button>
             </div>
           </form>
-        </div>
-        <div className="py-4 px-10 bg-gray-100 text-center">
-          <p className="text-sm text-gray-600">Already have an account? <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">Sign in</Link></p>
-        </div>
+          <div className="text-center mt-4">
+            <p className="text-xl text-gray-900">Don't have an account? <Link to="/login" className="font-large text-indigo-600 hover:text-indigo-700">Sign up</Link></p>
+          </div>
+        </div> 
       </div>
     </div>
   );
